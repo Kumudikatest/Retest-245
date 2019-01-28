@@ -1,0 +1,102 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "7005b84c-f784-4fcf-9bf9-f4ed4b1ad29e": {
+        "id": "7005b84c-f784-4fcf-9bf9-f4ed4b1ad29e",
+        "parent": null,
+        "name": "Retest-245",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "8003b1b4-1103-46ea-9990-7b6a4650e512"
+        ],
+        "isRemovable": false,
+        "filePath": "Retest-245"
+      },
+      "8003b1b4-1103-46ea-9990-7b6a4650e512": {
+        "id": "8003b1b4-1103-46ea-9990-7b6a4650e512",
+        "parent": "7005b84c-f784-4fcf-9bf9-f4ed4b1ad29e",
+        "name": "lambda.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Retest-245/lambda.js",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    ddb.scan({\n        TableName: 'test'\n    }).promise().then(function (data) {\n        //your logic goes here\n    }).catch(function (err) {\n        //handle error\n    });\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "triggers": [],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 60,
+          "memory": 128
+        }
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "7005b84c-f784-4fcf-9bf9-f4ed4b1ad29e",
+    "openFiles": [
+      "8003b1b4-1103-46ea-9990-7b6a4650e512"
+    ],
+    "currentFileId": "8003b1b4-1103-46ea-9990-7b6a4650e512",
+    "resources": {
+      "ddbtest": {
+        "name": "ddbtest",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "operation": "scan",
+          "table": {
+            "arn": "",
+            "name": "test",
+            "partitionKey": "ID",
+            "partitionKeyType": "N",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "mode": 0
+          },
+          "parameters": {
+            "Key": {},
+            "Item": {},
+            "ExpressionAttributeValues": {}
+          },
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
+        },
+        "globallyEditable": false
+      }
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    },
+    "lambdaId": "8003b1b4-1103-46ea-9990-7b6a4650e512"
+  },
+  "PROJECT_META": {
+    "projectName": "Retest-245",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1548673527746
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "Retest-245",
+      "url": "https://github.com/Kumudikatest/Retest-245"
+    }
+  }
+}
