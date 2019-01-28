@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Retest-245/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    ddb.scan({\n        TableName: 'test'\n    }).promise().then(function (data) {\n        //your logic goes here\n    }).catch(function (err) {\n        //handle error\n    });\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    ddb.scan({\n        TableName: 'test',\n        ExpressionAttributeValues: {\n            ':Age': 14\n        }\n    }).promise().then(function (data) {\n        //your logic goes here\n    }).catch(function (err) {\n        //handle error\n    });\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "triggers": [],
         "config": {
           "runtime": "nodejs8.10",
@@ -55,9 +55,10 @@
             "mode": 0
           },
           "parameters": {
-            "Key": {},
-            "Item": {},
-            "ExpressionAttributeValues": {}
+            "TableName": "test",
+            "ExpressionAttributeValues": {
+              ":Age": 14
+            }
           },
           "validator": {
             "validatableFields": {},
@@ -90,7 +91,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1548673527746
+    "lastSave": 1548674153548
   },
   "VCS_STATE": {
     "provider": "GitHub",
